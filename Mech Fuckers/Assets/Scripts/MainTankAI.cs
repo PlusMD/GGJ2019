@@ -16,6 +16,8 @@ public class MainTankAI : MonoBehaviour
     public ParticleSystem explosion;
     //private Quaternion smoothTilt;
 
+    public GameObject PowerUps;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +79,7 @@ public class MainTankAI : MonoBehaviour
             explosion.gameObject.SetActive(true);
             explosion.Play();
             GameObject.Destroy(this.gameObject);
+            PowerUps.GetComponent<PowerUpScript>().RandomSpawnChance(transform.position);
         }
     }
 }

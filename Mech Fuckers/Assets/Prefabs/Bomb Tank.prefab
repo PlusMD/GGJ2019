@@ -4835,6 +4835,8 @@ MonoBehaviour:
   effects: {fileID: 2598284338320901482}
   damageSparks: {fileID: 2598284338798090954}
   explosion: {fileID: 2598284338320901482}
+  PowerUps: {fileID: 7973958183774894895, guid: 2d83f9e4be339d445bf4c06a8b2c87fc,
+    type: 3}
 --- !u!65 &2598284338703859481
 BoxCollider:
   m_ObjectHideFlags: 0

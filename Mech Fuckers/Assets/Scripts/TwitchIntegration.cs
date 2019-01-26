@@ -37,7 +37,7 @@ public class TwitchIntegration : MonoBehaviour
 	// Password from https://twitchapps.com/tmi, username and channel name are your Twitch ones
 	public string username, password, channelName;
 
-	public Text chatBox; // UI text that displays chat on-screen. You can comment this out or delete it if you don't want it
+	//public Text chatBox; // UI text that displays chat on-screen. You can comment this out or delete it if you don't want it
 
     // Start connecting to Twitch, and start putting a 'thank you' message in the chat,
 	// along with any commands you want to remind chatters they can use
@@ -99,7 +99,7 @@ public class TwitchIntegration : MonoBehaviour
 
 				splitPoint = message.IndexOf (":", 1);
 				message = message.Substring(splitPoint + 1);
-				chatBox.text = String.Format ("{0}: {1}", chatName, message)  + "\n" + chatBox.text;
+				//chatBox.text = String.Format ("{0}: {1}", chatName, message)  + "\n" + chatBox.text;
 
 				GameInputs (message);
 			}
@@ -127,37 +127,36 @@ public class TwitchIntegration : MonoBehaviour
     // MAKE SURE when making a new command the string you enter is LOWER CASE since ToLower tries to keep it consistent
     private void GameInputs(string ChatInputs)
     {
-        if (ChatInputs.ToLower() == "hello world")
+        ChatInputs.ToLower();
+        switch (ChatInputs)
         {
-            switch (ChatInputs)
-            {
-                case "!spawn1":
-                case "!spawn 1":
-                    SpawnAI1();
-                    break;
-                case "!spawn2":
-                case "!spawn 2":
-                    SpawnAI2();
-                    break;
-                case "!spawn3":
-                case "!spawn 3":
-                    SpawnAI3();
-                    break;
-                case "!spawn4":
-                case "!spawn 4":
-                    SpawnAI4();
-                    break;;
-                default:
-                    Debug.Log("Somethings fucked up lads!");
-                    break;
-            }
-
+            case "!spawn1":
+            case "!spawn 1":
+                SpawnAI1();
+                break;
+            case "!spawn2":
+            case "!spawn 2":
+                SpawnAI2();
+                break;
+            case "!spawn3":
+            case "!spawn 3":
+                SpawnAI3();
+                break;
+            case "!spawn4":
+            case "!spawn 4":
+                SpawnAI4();
+                break;;
+            default:
+                Debug.Log("Somethings fucked up lads!");
+                break;
         }
+
+        
     }
 
     void SpawnAI1()
     {
-        if(Enemy1Cost > TwitchCurrency)
+        if (Enemy1Cost > TwitchCurrency)
         {
             return;
         }

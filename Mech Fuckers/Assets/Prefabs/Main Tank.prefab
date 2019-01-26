@@ -19029,6 +19029,8 @@ MonoBehaviour:
   effects: {fileID: 5888395920001471704}
   damageSparks: {fileID: 5888395919938491752}
   explosion: {fileID: 5888395920086305729}
+  PowerUps: {fileID: 7973958183774894895, guid: 2d83f9e4be339d445bf4c06a8b2c87fc,
+    type: 3}
 --- !u!1 &6831460372775198936
 GameObject:
   m_ObjectHideFlags: 0

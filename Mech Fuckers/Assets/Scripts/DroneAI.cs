@@ -15,6 +15,8 @@ public class DroneAI : MonoBehaviour
     public GameObject damageSparks;
     public ParticleSystem explosion;
 
+    public GameObject PowerUps;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +69,7 @@ public class DroneAI : MonoBehaviour
             em.enabled = true;
             explosion.Play();
             GameObject.Destroy(this.gameObject);
+            PowerUps.GetComponent<PowerUpScript>().RandomSpawnChance(transform.position);
         }
     }
 }

@@ -14,6 +14,8 @@ public class HelicopterAI : MonoBehaviour
     public GameObject damageSparks;
     public ParticleSystem explosion;
 
+    public GameObject PowerUps;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +57,7 @@ public class HelicopterAI : MonoBehaviour
             explosion.gameObject.SetActive(true);
             explosion.Play();
             GameObject.Destroy(this.gameObject);
+            PowerUps.GetComponent<PowerUpScript>().RandomSpawnChance(transform.position);
         }
     }
 }
