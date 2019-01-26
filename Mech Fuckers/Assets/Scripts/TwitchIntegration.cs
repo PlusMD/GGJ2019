@@ -13,6 +13,7 @@ public class TwitchIntegration : MonoBehaviour
     public int TwitchCurrency = 500;
     public Transform SpawnersObj;
     public List<Transform> Spawners = new List<Transform>();
+    int CurSpawner = 0;
 
     // I'm going to document this one since it's networking so you don't get confused
     // It's not a hard to understand script, but some stuff is unclear
@@ -105,10 +106,83 @@ public class TwitchIntegration : MonoBehaviour
 
     // Reading chat's commands happens here. Use the template if statement and copy it to make new commands
     // MAKE SURE when making a new command the string you enter is LOWER CASE since ToLower tries to keep it consistent
-    private void GameInputs(string ChatInputs){
-		if (ChatInputs.ToLower () == "hello world") {
-			//Code goes here lads
-		}
-	}
+    private void GameInputs(string ChatInputs)
+    {
+        if (ChatInputs.ToLower() == "hello world")
+        {
+            switch (ChatInputs)
+            {
+                case "!spawn1":
+                case "!spawn 1":
+                    SpawnAI1();
+                    break;
+                case "!spawn2":
+                case "!spawn 2":
+                    SpawnAI2();
+                    break;
+                case "!spawn3":
+                case "!spawn 3":
+                    SpawnAI3();
+                    break;
+                case "!spawn4":
+                case "!spawn 4":
+                    SpawnAI4();
+                    break;
+                case "!spawn5":
+                case "!spawn 5":
+                    SpawnAI5();
+                    break;
+                default:
+                    Console.WriteLine("Default case");
+                    break;
+            }
+
+        }
+    }
+
+    void SpawnAI1()
+    {
+        CurSpawner += 1;
+        if(CurSpawner == Spawners.Count)
+        {
+            CurSpawner = 0;
+        }
+    }
+
+    void SpawnAI2()
+    {
+        CurSpawner += 1;
+        if (CurSpawner == Spawners.Count)
+        {
+            CurSpawner = 0;
+        }
+    }
+
+    void SpawnAI3()
+    {
+        CurSpawner += 1;
+        if (CurSpawner == Spawners.Count)
+        {
+            CurSpawner = 0;
+        }
+    }
+
+    void SpawnAI4()
+    {
+        CurSpawner += 1;
+        if (CurSpawner == Spawners.Count)
+        {
+            CurSpawner = 0;
+        }
+    }
+
+    void SpawnAI5()
+    {
+        CurSpawner += 1;
+        if (CurSpawner == Spawners.Count)
+        {
+            CurSpawner = 0;
+        }
+    }
 
 }
