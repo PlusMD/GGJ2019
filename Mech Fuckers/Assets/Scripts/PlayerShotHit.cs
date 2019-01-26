@@ -12,11 +12,22 @@ public class PlayerShotHit : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other.tag == "Enemy")
+        if (other.tag == "Helicopter")
         {
-
+            other.GetComponent<HelicopterAI>().TakeDamage(Damage);
         }
-        if(other.tag == "Tree")
+
+        if (other.tag == "Bomb Tank")
+        {
+            other.GetComponent<TankBombAI>().TakeDamage(Damage);
+        }
+
+        if (other.tag == "Main Tank")
+        {
+            other.GetComponent<MainTankAI>().TakeDamage(Damage);
+        }
+
+        if (other.tag == "Tree")
         {
             ParticlePhysicsExtensions.GetCollisionEvents(ParticleGun, other, Collisions);
             for(int i = 0; i < Collisions.Count; i++)

@@ -13,6 +13,18 @@ public class TwitchIntegration : MonoBehaviour
     public int TwitchCurrency = 500;
     public Transform SpawnersObj;
     public List<Transform> Spawners = new List<Transform>();
+
+    public GameObject Enemy1;
+    public GameObject Enemy2;
+    public GameObject Enemy3;
+    public GameObject Enemy4;
+    public GameObject Enemy5;
+    public int Enemy1Cost = 50;
+    public int Enemy2Cost = 100;
+    public int Enemy3Cost = 150;
+    public int Enemy4Cost = 200;
+    public int Enemy5Cost = 250;
+
     int CurSpawner = 0;
 
     // I'm going to document this one since it's networking so you don't get confused
@@ -22,7 +34,7 @@ public class TwitchIntegration : MonoBehaviour
 	private StreamReader reader; // The reader of the stream, records chatter's chattings
 	private StreamWriter writer; // Writes stuff to the chat
 
-	// Password from https://twitchapps.com/tm, username and channel name are your Twitch ones
+	// Password from https://twitchapps.com/tmi, username and channel name are your Twitch ones
 	public string username, password, channelName;
 
 	public Text chatBox; // UI text that displays chat on-screen. You can comment this out or delete it if you don't want it
@@ -32,7 +44,14 @@ public class TwitchIntegration : MonoBehaviour
 	// Change the '60f' to however often in seconds you want the message to be put in chat
     void Start()
     {
-        foreach(Transform Spawner in SpawnersObj)
+        password = PlayerPrefs.GetString("Twitch_Auth_Key");
+        Debug.Log(password); 
+
+        //player prefs.getstring twitch autho key. 
+        //outside- seprate (public) which will record
+        //player pref as string 
+
+        foreach (Transform Spawner in SpawnersObj)
         {
             Spawners.Add(Spawner);
         }
@@ -142,6 +161,11 @@ public class TwitchIntegration : MonoBehaviour
 
     void SpawnAI1()
     {
+        if(Enemy1Cost > TwitchCurrency)
+        {
+            return;
+        }
+        TwitchCurrency -= Enemy1Cost;
         CurSpawner += 1;
         if(CurSpawner == Spawners.Count)
         {
@@ -151,6 +175,11 @@ public class TwitchIntegration : MonoBehaviour
 
     void SpawnAI2()
     {
+        if (Enemy2Cost > TwitchCurrency)
+        {
+            return;
+        }
+        TwitchCurrency -= Enemy2Cost;
         CurSpawner += 1;
         if (CurSpawner == Spawners.Count)
         {
@@ -160,6 +189,11 @@ public class TwitchIntegration : MonoBehaviour
 
     void SpawnAI3()
     {
+        if (Enemy3Cost > TwitchCurrency)
+        {
+            return;
+        }
+        TwitchCurrency -= Enemy3Cost;
         CurSpawner += 1;
         if (CurSpawner == Spawners.Count)
         {
@@ -169,6 +203,11 @@ public class TwitchIntegration : MonoBehaviour
 
     void SpawnAI4()
     {
+        if (Enemy4Cost > TwitchCurrency)
+        {
+            return;
+        }
+        TwitchCurrency -= Enemy4Cost;
         CurSpawner += 1;
         if (CurSpawner == Spawners.Count)
         {
@@ -178,6 +217,11 @@ public class TwitchIntegration : MonoBehaviour
 
     void SpawnAI5()
     {
+        if (Enemy5Cost > TwitchCurrency)
+        {
+            return;
+        }
+        TwitchCurrency -= Enemy5Cost;
         CurSpawner += 1;
         if (CurSpawner == Spawners.Count)
         {

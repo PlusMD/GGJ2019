@@ -9,11 +9,15 @@ public class HelicopterAI : MonoBehaviour
     public NavMeshAgent agent;
     public Transform gattlingGun;
     public float range = 20.0f;
+    public float health = 50.0f;
     public ParticleSystem effects;
+    public GameObject damageSparks;
+    public ParticleSystem explosion;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         var em = effects.emission;
         em.enabled = false;
     }
@@ -33,6 +37,24 @@ public class HelicopterAI : MonoBehaviour
         else {
             var em = effects.emission;
             em.enabled = false;
+        }
+    }
+
+    public void TakeDamage(float damageTaken)
+    {
+        health -= damageTaken;
+
+        if (health <= 30)
+        {
+            damageSparks.SetActive(true);
+        }
+
+        if (health <= 0)
+        {
+            explosion.transform.parent = null;
+            explosion.gameObject.SetActive(true);
+            explosion.Play();
+            GameObject.Destroy(this.gameObject);
         }
     }
 }
