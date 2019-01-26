@@ -10,6 +10,8 @@ TagManager:
   - Bomb Tank
   - Main Tank
   - RepairKit
+  - Drone
+  - Superheavy
   layers:
   - Default
   - TransparentFX

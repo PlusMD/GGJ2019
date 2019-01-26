@@ -27,6 +27,16 @@ public class PlayerShotHit : MonoBehaviour
             other.GetComponent<MainTankAI>().TakeDamage(Damage);
         }
 
+        if (other.tag == "Drone")
+        {
+            other.GetComponent<DroneAI>().TakeDamage(Damage);
+        }
+
+        if (other.tag == "Superheavy")
+        {
+            other.GetComponent<SuperTankAI>().TakeDamage(Damage);
+        }
+
         /*if (other.tag == "Tree")
         {
             ParticlePhysicsExtensions.GetCollisionEvents(ParticleGun, other, Collisions);
