@@ -27,7 +27,7 @@ public class PlayerShotHit : MonoBehaviour
             other.GetComponent<MainTankAI>().TakeDamage(Damage);
         }
 
-        if (other.tag == "Tree")
+        /*if (other.tag == "Tree")
         {
             ParticlePhysicsExtensions.GetCollisionEvents(ParticleGun, other, Collisions);
             for(int i = 0; i < Collisions.Count; i++)
@@ -35,14 +35,14 @@ public class PlayerShotHit : MonoBehaviour
                 EmitWoodSpray(Collisions[i]);
             }
             other.GetComponent<TreeHealth>().LoseHealth(Damage);
-        }
+        }*/
     }
 
-    void EmitWoodSpray(ParticleCollisionEvent CollisionEvent)
+    /*void EmitWoodSpray(ParticleCollisionEvent CollisionEvent)
     {
         WoodSpray.transform.position = CollisionEvent.intersection;
         WoodSpray.transform.rotation = Quaternion.LookRotation(CollisionEvent.normal);
         WoodSpray.Emit(1);
-    }
+    }*/
 
 }

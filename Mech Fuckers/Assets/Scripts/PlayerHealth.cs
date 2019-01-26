@@ -45,4 +45,15 @@ public class PlayerHealth : MonoBehaviour
             damageAlarm.SetActive(true);
         }
     }
+
+    public void FoundRepairKit()
+    {
+        currentHealth += 50;
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        healthBar.fillAmount = currentHealth / maxHealth;
+    }
+
 }

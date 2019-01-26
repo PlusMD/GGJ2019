@@ -9,6 +9,7 @@ TagManager:
   - Helicopter
   - Bomb Tank
   - Main Tank
+  - RepairKit
   layers:
   - Default
   - TransparentFX
