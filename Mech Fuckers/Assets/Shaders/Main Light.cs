@@ -33,7 +33,7 @@ public class MainLightNode : CodeFunctionNode
     private static string functionBodyPreview = @"{
 			Color = 1;
 			Direction = float3(-0.5, -.5, 0.5);
-			Attenuation = 1;
+			Attenuation = 2;
 		}";
 
     private static bool isPreview;

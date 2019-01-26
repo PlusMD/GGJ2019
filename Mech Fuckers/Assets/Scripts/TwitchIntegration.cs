@@ -133,7 +133,7 @@ public class TwitchIntegration : MonoBehaviour
                     SpawnAI5();
                     break;
                 default:
-                    Console.WriteLine("Default case");
+                    Debug.Log("Somethings fucked up lads!");
                     break;
             }
 
