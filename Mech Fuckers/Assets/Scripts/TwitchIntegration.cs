@@ -10,7 +10,9 @@ using UnityEngine.UI;
 public class TwitchIntegration : MonoBehaviour
 {
 
+    public int WaveNumber = 1;
     public int TwitchCurrency = 500;
+    public int TwitchCurrencyLevel = 500;
     public Transform SpawnersObj;
     public List<Transform> Spawners = new List<Transform>();
 
@@ -18,12 +20,10 @@ public class TwitchIntegration : MonoBehaviour
     public GameObject Enemy2;
     public GameObject Enemy3;
     public GameObject Enemy4;
-    public GameObject Enemy5;
     public int Enemy1Cost = 50;
     public int Enemy2Cost = 100;
     public int Enemy3Cost = 150;
     public int Enemy4Cost = 200;
-    public int Enemy5Cost = 250;
 
     int CurSpawner = 0;
 
@@ -146,11 +146,7 @@ public class TwitchIntegration : MonoBehaviour
                 case "!spawn4":
                 case "!spawn 4":
                     SpawnAI4();
-                    break;
-                case "!spawn5":
-                case "!spawn 5":
-                    SpawnAI5();
-                    break;
+                    break;;
                 default:
                     Debug.Log("Somethings fucked up lads!");
                     break;
@@ -171,6 +167,8 @@ public class TwitchIntegration : MonoBehaviour
         {
             CurSpawner = 0;
         }
+        Instantiate(Enemy1, Spawners[CurSpawner].position, Quaternion.identity);
+        CheckTwitchCurrency();
     }
 
     void SpawnAI2()
@@ -185,6 +183,8 @@ public class TwitchIntegration : MonoBehaviour
         {
             CurSpawner = 0;
         }
+        Instantiate(Enemy2, Spawners[CurSpawner].position, Quaternion.identity);
+        CheckTwitchCurrency();
     }
 
     void SpawnAI3()
@@ -199,6 +199,8 @@ public class TwitchIntegration : MonoBehaviour
         {
             CurSpawner = 0;
         }
+        Instantiate(Enemy3, Spawners[CurSpawner].position, Quaternion.identity);
+        CheckTwitchCurrency();
     }
 
     void SpawnAI4()
@@ -213,20 +215,23 @@ public class TwitchIntegration : MonoBehaviour
         {
             CurSpawner = 0;
         }
+        Instantiate(Enemy4, Spawners[CurSpawner].position, Quaternion.identity);
+        CheckTwitchCurrency();
     }
 
-    void SpawnAI5()
+    void CheckTwitchCurrency()
     {
-        if (Enemy5Cost > TwitchCurrency)
+        if(TwitchCurrency == 0)
         {
-            return;
+            Invoke("WaveEnd", 20);
         }
-        TwitchCurrency -= Enemy5Cost;
-        CurSpawner += 1;
-        if (CurSpawner == Spawners.Count)
-        {
-            CurSpawner = 0;
-        }
+    }
+
+    void WaveEnd()
+    {
+        TwitchCurrencyLevel += 50;
+        TwitchCurrency = TwitchCurrencyLevel;
+        WaveNumber += 1;
     }
 
 }
