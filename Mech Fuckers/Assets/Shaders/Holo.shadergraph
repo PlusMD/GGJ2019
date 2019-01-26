@@ -10,7 +10,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.TextureShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Value\": {\n        \"m_SerializedTexture\": \"\",\n        \"m_Guid\": \"aeaa8b5ad2c8f9c40b52a0f19613c7c5\"\n    },\n    \"m_Name\": \"HoloTexture\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"41c2eccf-5b73-4416-a2c2-6c63059399d5\"\n    },\n    \"m_OverrideReferenceName\": \"\",\n    \"m_Modifiable\": true,\n    \"m_DefaultType\": 0\n}"
+            "JSONnodeData": "{\n    \"m_Value\": {\n        \"m_SerializedTexture\": \"\",\n        \"m_Guid\": \"5f0235a8b66c08e4faed7211ab7026c8\"\n    },\n    \"m_Name\": \"HoloTexture\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"41c2eccf-5b73-4416-a2c2-6c63059399d5\"\n    },\n    \"m_OverrideReferenceName\": \"\",\n    \"m_Modifiable\": true,\n    \"m_DefaultType\": 0\n}"
         },
         {
             "typeInfo": {

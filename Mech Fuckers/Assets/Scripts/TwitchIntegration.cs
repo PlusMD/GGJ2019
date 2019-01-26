@@ -11,11 +11,13 @@ public class TwitchIntegration : MonoBehaviour
 {
 
     public int TwitchCurrency = 500;
+    public Transform SpawnersObj;
+    public List<Transform> Spawners = new List<Transform>();
 
-	// I'm going to document this one since it's networking so you don't get confused
-	// It's not a hard to understand script, but some stuff is unclear
+    // I'm going to document this one since it's networking so you don't get confused
+    // It's not a hard to understand script, but some stuff is unclear
 
-	private TcpClient twitchClient; // Twitch's client
+    private TcpClient twitchClient; // Twitch's client
 	private StreamReader reader; // The reader of the stream, records chatter's chattings
 	private StreamWriter writer; // Writes stuff to the chat
 
@@ -29,8 +31,11 @@ public class TwitchIntegration : MonoBehaviour
 	// Change the '60f' to however often in seconds you want the message to be put in chat
     void Start()
     {
+        foreach(Transform Spawner in SpawnersObj)
+        {
+            Spawners.Add(Spawner);
+        }
 		Connect ();
-
 		InvokeRepeating ("chatThankYou", 0f, 60f);
     }
 
