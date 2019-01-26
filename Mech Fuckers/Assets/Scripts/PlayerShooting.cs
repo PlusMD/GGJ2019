@@ -6,12 +6,16 @@ public class PlayerShooting : MonoBehaviour
 {
     public bool primary = true;
     public ParticleSystem effects;
+    public ParticleSystem muzzle;
 
     // Start is called before the first frame update
     void Start()
     {
         var em = effects.emission;
         em.enabled = false;
+
+        var emmuzzle = muzzle.emission;
+        emmuzzle.enabled = false;
     }
 
     // Update is called once per frame
@@ -23,12 +27,18 @@ public class PlayerShooting : MonoBehaviour
             {
                 var em = effects.emission;
                 em.enabled = true;
+
+                var emmuzzle = muzzle.emission;
+                emmuzzle.enabled = true;
             }
 
             if (Input.GetKeyUp(KeyCode.Mouse0))
             {
                 var em = effects.emission;
                 em.enabled = false;
+
+                var emmuzzle = muzzle.emission;
+                emmuzzle.enabled = false;
             }
         }
 
@@ -38,12 +48,18 @@ public class PlayerShooting : MonoBehaviour
             {
                 var em = effects.emission;
                 em.enabled = true;
+
+                var emmuzzle = muzzle.emission;
+                emmuzzle.enabled = true;
             }
 
             if (Input.GetKeyUp(KeyCode.Mouse1))
             {
                 var em = effects.emission;
                 em.enabled = false;
+
+                var emmuzzle = muzzle.emission;
+                emmuzzle.enabled = false;
             }
         }
     }

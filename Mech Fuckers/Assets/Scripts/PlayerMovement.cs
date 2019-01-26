@@ -25,8 +25,6 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
 
-        gameObject.transform.position = new Vector3(0, 5, 0);
-
         Cursor.lockState = CursorLockMode.Locked;
     }
 

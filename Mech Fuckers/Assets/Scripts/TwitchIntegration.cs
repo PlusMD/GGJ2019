@@ -10,6 +10,8 @@ using UnityEngine.UI;
 public class TwitchIntegration : MonoBehaviour
 {
 
+    public int TwitchCurrency = 500;
+
 	// I'm going to document this one since it's networking so you don't get confused
 	// It's not a hard to understand script, but some stuff is unclear
 
@@ -86,20 +88,22 @@ public class TwitchIntegration : MonoBehaviour
 		}
 	}
 
-	// Reading chat's commands happens here. Use the template if statement and copy it to make new commands
-	// MAKE SURE when making a new command the string you enter is LOWER CASE since ToLower tries to keep it consistent
-	private void GameInputs(string ChatInputs){
+    // Use this bit for thanking players but also displaying a list of commands they can use during the game
+    // If there's different commands for different states of the game i.e. movement, fighting
+    // Probably put some if statements in there so you don't flood the chat with one giant message
+    private void chatThankYou()
+    {
+        string message_to_send = "PRIVMSG #" + channelName + " :" + "Thank you for playing!";
+        writer.WriteLine(message_to_send);
+        writer.Flush();
+    }
+
+    // Reading chat's commands happens here. Use the template if statement and copy it to make new commands
+    // MAKE SURE when making a new command the string you enter is LOWER CASE since ToLower tries to keep it consistent
+    private void GameInputs(string ChatInputs){
 		if (ChatInputs.ToLower () == "hello world") {
 			//Code goes here lads
 		}
 	}
 
-	// Use this bit for thanking players but also displaying a list of commands they can use during the game
-	// If there's different commands for different states of the game i.e. movement, fighting
-	// Probably put some if statements in there so you don't flood the chat with one giant message
-	private void chatThankYou(){
-		string message_to_send = "PRIVMSG #" + channelName + " :" + "Thank you for playing!";
-		writer.WriteLine (message_to_send);
-		writer.Flush ();
-	}
 }
