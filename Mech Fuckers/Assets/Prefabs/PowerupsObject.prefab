@@ -48,3 +48,4 @@ MonoBehaviour:
     type: 3}
   Battery: {fileID: 6092692537569346865, guid: cb4a1c3f9c37a7d42b3aae812fc5b8ff, type: 3}
   Nitro: {fileID: 5669275852511212786, guid: 7ae0fff9024dfca4ab4310e9ceb89ade, type: 3}
+  Jetpack: {fileID: 7052918453062261881, guid: 8c53939be67b82c4d8d839a643be2902, type: 3}

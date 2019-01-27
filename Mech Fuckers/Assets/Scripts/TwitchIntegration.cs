@@ -130,16 +130,8 @@ public class TwitchIntegration : MonoBehaviour
     // Probably put some if statements in there so you don't flood the chat with one giant message
     private void chatThankYou()
     {
-        string message1 = "PRIVMSG #" + channelName + " :" + "Command List:";
-        string message2 = "PRIVMSG #" + channelName + " :" + "'!tank' Cost: " + Enemy1Cost;
-        string message3 = "PRIVMSG #" + channelName + " :" + "'!drone' Cost: " + Enemy2Cost;
-        string message4 = "PRIVMSG #" + channelName + " :" + "'!chopper' Cost: " + Enemy3Cost;
-        string message5 = "PRIVMSG #" + channelName + " :" + "'!heavytank' Cost: " + Enemy4Cost;
+        string message1 = "PRIVMSG #" + channelName + " :" + "Command List: " + "'!tank' Cost: " + Enemy1Cost + " - '!drone' Cost: " + Enemy2Cost + " - '!chopper' Cost: " + Enemy3Cost + " - '!heavytank' Cost: " + Enemy4Cost;
         writer.WriteLine(message1);
-        writer.WriteLine(message2);
-        writer.WriteLine(message3);
-        writer.WriteLine(message4);
-        writer.WriteLine(message5);
         writer.Flush();
     }
 

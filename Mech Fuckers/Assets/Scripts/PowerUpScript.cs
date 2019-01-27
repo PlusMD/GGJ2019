@@ -8,6 +8,7 @@ public class PowerUpScript : MonoBehaviour
     public GameObject RepairKit;
     public GameObject Battery;
     public GameObject Nitro;
+    public GameObject Jetpack;
 
     public void RandomSpawnChance(Vector3 Location)
     {
@@ -20,24 +21,22 @@ public class PowerUpScript : MonoBehaviour
 
     void WhichPowerUp(Vector3 Location)
     {
-        int Power = Random.Range(0, 3);
-        //Power = 1;
-        Debug.Log(Power);
-        switch (Power)
+        int Power = Random.Range(0, 10);
+        if(Power <= 3)
         {
-            case 0:
-                Instantiate(RepairKit, Location, Quaternion.identity);
-                break;
-            case 1:
-                Instantiate(Battery, Location, Quaternion.identity);
-                break;
-            case 2:
-                Instantiate(Nitro, Location, Quaternion.identity);
-                break;
-            default:
-                Debug.Log("Somethings fucked up lads, Blasted Powerup Script");
-                break;
+            Instantiate(RepairKit, Location, Quaternion.identity);
+        }
+        else if(Power == 4 || Power == 5)
+        {
+            Instantiate(Battery, Location, Quaternion.identity);
+        }
+        else if(Power == 6 || Power == 7)
+        {
+            Instantiate(Nitro, Location, Quaternion.identity);
+        }
+        else if(Power == 8 || Power == 9)
+        {
+            Instantiate(Jetpack, Location, Quaternion.identity);
         }
     }
-
 }

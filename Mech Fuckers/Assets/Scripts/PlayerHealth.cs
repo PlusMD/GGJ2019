@@ -20,8 +20,8 @@ public class PlayerHealth : MonoBehaviour
     public GameObject ParticleGun1;
     public GameObject ParticleGun2;
     bool DoubleDamage = false;
-
     bool DoubleSpeed = false;
+    bool JumpBoost = false;
 
     public void Update()
     {
@@ -37,10 +37,16 @@ public class PlayerHealth : MonoBehaviour
                     ParticleGun2.GetComponent<PlayerShotHit>().Damage /= 2;
                     powerupUI.text = "";
                 }
-                else if(DoubleSpeed)
+                if(DoubleSpeed)
                 {
                     DoubleSpeed = false;
                     this.gameObject.GetComponent<PlayerMovement>().speed /= 2;
+                    powerupUI.text = "";
+                }
+                if(JumpBoost)
+                {
+                    JumpBoost = false;
+                    this.gameObject.GetComponent<PlayerMovement>().jumpSpeed /= 2;
                     powerupUI.text = "";
                 }
                 CheckOtherPowerUps();
@@ -50,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
 
     void CheckOtherPowerUps()
     {
-        if (!DoubleDamage && !DoubleSpeed)
+        if (!DoubleDamage && !DoubleSpeed && !JumpBoost)
         {
             PowerUp = false;
         }
@@ -79,7 +85,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void FoundRepairKit()
     {
-        currentHealth += 100;
+        currentHealth += 125;
         if(currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
@@ -107,7 +113,19 @@ public class PlayerHealth : MonoBehaviour
             PowerUp = true;
             DoubleSpeed = true;
             this.gameObject.GetComponent<PlayerMovement>().speed *= 2;
-            powerupUI.text = "NITRO";
+            powerupUI.text = "NITRO RUN";
+        }
+        TimeLeft = 20f;
+    }
+
+    public void FoundJetPack()
+    {
+        if(!JumpBoost)
+        {
+            PowerUp = true;
+            JumpBoost = true;
+            this.gameObject.GetComponent<PlayerMovement>().jumpSpeed *= 2;
+            powerupUI.text = "NITRO JUMP";
         }
         TimeLeft = 20f;
     }
