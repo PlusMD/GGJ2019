@@ -66,7 +66,7 @@ public class TwitchConnect : MonoBehaviour
         writer = new StreamWriter(twitchClient.GetStream());
 
         writer.WriteLine("PASS " + authKey);
-        writer.WriteLine("NICK " + userName);
+        writer.WriteLine("NICK " + "5");
         writer.WriteLine("USER " + userName + " 8 * :" + userName);
 
         writer.WriteLine("JOIN #" + dispName);

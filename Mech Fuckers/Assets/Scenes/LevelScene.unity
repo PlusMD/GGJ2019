@@ -10760,6 +10760,11 @@ PrefabInstance:
       propertyPath: username
       value: hf97damnation
       objectReference: {fileID: 0}
+    - target: {fileID: 402382116099824472, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd4e30f3218f2534a8931432e9598710, type: 3}
 --- !u!1001 &1101367392909185341

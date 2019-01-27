@@ -13,11 +13,12 @@ public class Home : MonoBehaviour
     public GameObject fireDamageDoor;
     public GameObject player;
     public Animator animController;
+    public AudioClip onHit; 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        GetComponent<AudioSource>().clip = onHit; 
     }
 
     // Update is called once per frame
@@ -31,6 +32,7 @@ public class Home : MonoBehaviour
         currentHealth -= damageTaken;
 
         healthBar.fillAmount = currentHealth / maxHealth;
+        GetComponent<AudioSource>().Play();
 
         if (currentHealth <= 100)
         {

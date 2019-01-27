@@ -20,9 +20,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
 
+    public AudioClip Jump;
+    public AudioClip Land;
+    AudioSource JumpAudio;
+    bool InAir = false;
+    float InAirTime = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
+        JumpAudio = GetComponent<AudioSource>();
         controller = GetComponent<CharacterController>();
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -39,10 +46,26 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetButton("Jump"))
             {
+                InAir = true;
+                //JumpAudio.Play(0);
+                JumpAudio.Play(0);
                 moveDirection.y = jumpSpeed;
             }
         }
-
+        if(InAir)
+        {
+            InAirTime -= Time.deltaTime;
+            if(InAirTime <= 0)
+            {
+                if (controller.isGrounded)
+                {
+                    InAirTime = 1f;
+                    InAir = false;
+                    JumpAudio.Play(0);
+                    JumpAudio.PlayOneShot(Land, 0F);
+                }
+            }
+        }
         moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
 
         controller.Move(moveDirection * Time.deltaTime);

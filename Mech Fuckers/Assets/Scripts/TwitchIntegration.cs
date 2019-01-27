@@ -140,7 +140,7 @@ public class TwitchIntegration : MonoBehaviour
     // MAKE SURE when making a new command the string you enter is LOWER CASE since ToLower tries to keep it consistent
     private void GameInputs(string ChatInputs)
     {
-        ChatInputs.ToLower();
+        /*ChatInputs.ToLower();
         switch (ChatInputs)
         {
             case "!tank":
@@ -162,9 +162,27 @@ public class TwitchIntegration : MonoBehaviour
             default:
                 Debug.Log("Chat command incorrect!");
                 break;
+        }*/
+
+        if (ChatInputs.ToLower() == "!tank")
+        {
+            SpawnAI1();
         }
 
-        
+        if (ChatInputs.ToLower() == "!drone")
+        {
+            SpawnAI2();
+        }
+
+        if (ChatInputs.ToLower() == "!chopper")
+        {
+            SpawnAI3();
+        }
+
+        if (ChatInputs.ToLower() == "!heavytank")
+        {
+            SpawnAI4();
+        }
     }
 
     void SpawnAI1()
