@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnChance: 10
-  RepairKit: {fileID: 672063703859022764, guid: 1f1dc41c77df6634b984476d2db802b3,
+  RepairKit: {fileID: 1676599368874869494, guid: daae6f7d90f89464e9e2dff3493d601b,
     type: 3}
-  Battery: {fileID: 6092692537569346865, guid: cb4a1c3f9c37a7d42b3aae812fc5b8ff, type: 3}
-  Nitro: {fileID: 5669275852511212786, guid: 7ae0fff9024dfca4ab4310e9ceb89ade, type: 3}
+  Battery: {fileID: 4631987834993342643, guid: 38cf81c8a8eb283418a9d37805fb9b26, type: 3}
+  Nitro: {fileID: 8298779483839577617, guid: e0bff5cf6476c9b4b93fda6e0f771dc1, type: 3}
   Jetpack: {fileID: 7052918453062261881, guid: 8c53939be67b82c4d8d839a643be2902, type: 3}
