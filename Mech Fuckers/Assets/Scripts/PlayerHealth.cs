@@ -13,16 +13,36 @@ public class PlayerHealth : MonoBehaviour
     public GameObject damageHologramRed;
     public GameObject damageAlarm;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    float TimeLeft = 20f;
 
-    // Update is called once per frame
-    void Update()
+    public GameObject ParticleGun1;
+    public GameObject ParticleGun2;
+    bool DoubleDamage = false;
+
+    bool DoubleSpeed = false;
+
+    public void Update()
     {
-        
+        if(DoubleDamage)
+        {
+            TimeLeft -= Time.deltaTime;
+            if(TimeLeft <= 0)
+            {
+                DoubleDamage = false;
+                ParticleGun1.GetComponent<PlayerShotHit>().Damage /= 2;
+                ParticleGun2.GetComponent<PlayerShotHit>().Damage /= 2;
+                TimeLeft = 20f;
+            }
+        }
+        else if(DoubleSpeed)
+        {
+            TimeLeft -= Time.deltaTime;
+            if(TimeLeft <= 0)
+            {
+                DoubleSpeed = false;
+                this.gameObject.GetComponent<PlayerMovement>().speed /= 2;
+            }
+        }
     }
 
     public void TakeDamage(float damageTaken) {
@@ -54,6 +74,19 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = maxHealth;
         }
         healthBar.fillAmount = currentHealth / maxHealth;
+    }
+
+    public void FoundBattery()
+    {
+        DoubleDamage = true;
+        ParticleGun1.GetComponent<PlayerShotHit>().Damage *= 2;
+        ParticleGun2.GetComponent<PlayerShotHit>().Damage *= 2;
+    }
+
+    public void FoundNitro()
+    {
+        DoubleSpeed = true;
+        this.gameObject.GetComponent<PlayerMovement>().speed *= 2;
     }
 
 }

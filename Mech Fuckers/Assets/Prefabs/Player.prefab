@@ -16031,6 +16031,8 @@ MonoBehaviour:
   damageHologram: {fileID: 566835620}
   damageHologramRed: {fileID: 1405565110}
   damageAlarm: {fileID: 722187204}
+  ParticleGun1: {fileID: 8512493411612766559}
+  ParticleGun2: {fileID: 8512493412135393939}
 --- !u!1 &8512493411931538874
 GameObject:
   m_ObjectHideFlags: 0
@@ -39946,10 +39948,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.43040025
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 80a6c4aae0924c240b6b16e39b2a93cd, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b222ece689707794bafb0310f65f11f2, type: 2}
     - target: {fileID: 2300002, guid: 80a6c4aae0924c240b6b16e39b2a93cd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -39958,6 +39956,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 5a70ddff2248eaf449301390e6adceb0, type: 2}
+    - target: {fileID: 2300000, guid: 80a6c4aae0924c240b6b16e39b2a93cd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b222ece689707794bafb0310f65f11f2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80a6c4aae0924c240b6b16e39b2a93cd, type: 3}
 --- !u!4 &8512493411529307723 stripped

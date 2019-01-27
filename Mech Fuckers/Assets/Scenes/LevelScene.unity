@@ -1658,6 +1658,14 @@ PrefabInstance:
       propertyPath: CollisionModule.collisionMessages
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 543244255, guid: b8317efd4750c1745a0d0593fb0eda8a, type: 3}
+      propertyPath: ParticleGun1
+      value: 
+      objectReference: {fileID: 1226573576}
+    - target: {fileID: 543244255, guid: b8317efd4750c1745a0d0593fb0eda8a, type: 3}
+      propertyPath: ParticleGun2
+      value: 
+      objectReference: {fileID: 400448284}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8317efd4750c1745a0d0593fb0eda8a, type: 3}
 --- !u!1001 &310651913

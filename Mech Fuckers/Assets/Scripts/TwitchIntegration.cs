@@ -220,7 +220,7 @@ public class TwitchIntegration : MonoBehaviour
 
     void CheckTwitchCurrency()
     {
-        if(TwitchCurrency == 0)
+        if(TwitchCurrency <= 0)
         {
             Invoke("WaveEnd", 20);
         }

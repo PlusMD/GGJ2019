@@ -45,3 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RepairKit: {fileID: 672063703859022764, guid: 1f1dc41c77df6634b984476d2db802b3,
     type: 3}
+  Battery: {fileID: 6092692537569346865, guid: cb4a1c3f9c37a7d42b3aae812fc5b8ff, type: 3}
+  Nitro: {fileID: 5669275852511212786, guid: 7ae0fff9024dfca4ab4310e9ceb89ade, type: 3}
