@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Home : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Home : MonoBehaviour
     public GameObject fireDamageWindow;
     public GameObject fireDamageDoor;
     public GameObject player;
+    public Animator animController;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,13 @@ public class Home : MonoBehaviour
 
         if (currentHealth <= 0) {
             player.SetActive(false);
+            animController.SetTrigger("Destroyed");
         }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(1);
+
     }
 }

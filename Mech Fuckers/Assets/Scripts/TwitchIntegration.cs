@@ -26,6 +26,7 @@ public class TwitchIntegration : MonoBehaviour
     public int Enemy2Cost = 100;
     public int Enemy3Cost = 150;
     public int Enemy4Cost = 200;
+    public Text currencyText;
 
     public Text waveCounter;
     public Animator uiAnimController;
@@ -180,6 +181,7 @@ public class TwitchIntegration : MonoBehaviour
         }
         Instantiate(Enemy1, Spawners[CurSpawner].position, Quaternion.identity);
         CheckTwitchCurrency();
+        currencyText.text = TwitchCurrency.ToString();
     }
 
     void SpawnAI2()
@@ -196,6 +198,7 @@ public class TwitchIntegration : MonoBehaviour
         }
         Instantiate(Enemy2, Spawners[CurSpawner].position, Quaternion.identity);
         CheckTwitchCurrency();
+        currencyText.text = TwitchCurrency.ToString();
     }
 
     void SpawnAI3()
@@ -212,6 +215,7 @@ public class TwitchIntegration : MonoBehaviour
         }
         Instantiate(Enemy3, Spawners[CurSpawner].position, Quaternion.identity);
         CheckTwitchCurrency();
+        currencyText.text = TwitchCurrency.ToString();
     }
 
     void SpawnAI4()
@@ -228,6 +232,7 @@ public class TwitchIntegration : MonoBehaviour
         }
         Instantiate(Enemy4, Spawners[CurSpawner].position, Quaternion.identity);
         CheckTwitchCurrency();
+        currencyText.text = TwitchCurrency.ToString();
     }
 
     void SpawnBombers()
@@ -258,6 +263,7 @@ public class TwitchIntegration : MonoBehaviour
         uiAnimController.SetTrigger("WaveChange");
         TwitchCurrencyLevel += 100;
         TwitchCurrency = TwitchCurrencyLevel;
+        currencyText.text = TwitchCurrencyLevel.ToString();
         WaveNumber += 1;
         SpawnBombers();
     }

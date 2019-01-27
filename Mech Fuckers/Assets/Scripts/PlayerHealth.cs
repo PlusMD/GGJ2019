@@ -12,10 +12,14 @@ public class PlayerHealth : MonoBehaviour
     public GameObject damageHologram;
     public GameObject damageHologramRed;
     public GameObject damageAlarm;
+    public CharacterController controller;
 
     bool PowerUp = false;
     public float TimeLeft = 20f;
     public Text powerupUI;
+
+    public GameObject playerDeath;
+    bool isDead = false;
 
     public GameObject ParticleGun1;
     public GameObject ParticleGun2;
@@ -52,6 +56,12 @@ public class PlayerHealth : MonoBehaviour
                 CheckOtherPowerUps();
             }
         }
+
+        if (isDead == true && controller.isGrounded) {
+            playerDeath.transform.position = gameObject.transform.position;
+            playerDeath.SetActive(true);
+            gameObject.SetActive(false);
+        }
     }
 
     void CheckOtherPowerUps()
@@ -80,6 +90,11 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 50)
         {
             damageAlarm.SetActive(true);
+        }
+
+        if (currentHealth <= 0)
+        {
+            isDead = true;
         }
     }
 

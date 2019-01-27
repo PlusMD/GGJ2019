@@ -14386,7 +14386,7 @@ MonoBehaviour:
   turretBack: {fileID: 1286678877236601060}
   turretBig: {fileID: 1286678877236601064}
   range: 100
-  health: 100
+  health: 500
   effectsTurretFront: {fileID: 1286678878249449897}
   effectsTurretBack: {fileID: 1286678878382414351}
   effectsTurretBig: {fileID: 1286678878075168262}
@@ -19106,7 +19106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c93846173dabd45b90f5819d628205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  damage: 40
 --- !u!1 &1286678878131870684
 GameObject:
   m_ObjectHideFlags: 0
@@ -33273,7 +33273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c93846173dabd45b90f5819d628205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
+  damage: 20
 --- !u!1 &1286678878382414350
 GameObject:
   m_ObjectHideFlags: 0
@@ -37986,7 +37986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c93846173dabd45b90f5819d628205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
+  damage: 20
 --- !u!1001 &1286678877236214380
 PrefabInstance:
   m_ObjectHideFlags: 0

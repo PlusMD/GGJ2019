@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4971574512651461982}
   - component: {fileID: 7552687521688242701}
   - component: {fileID: 5560664489620651274}
-  - component: {fileID: 3351213401684230570}
+  - component: {fileID: 5212414361878559667}
   m_Layer: 0
   m_Name: JetPack
   m_TagString: Untagged
@@ -204,7 +204,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 4.5
   m_Center: {x: 0, y: 0, z: -0.37071618}
---- !u!114 &3351213401684230570
+--- !u!114 &5212414361878559667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -92,6 +92,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &29275308607966603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4631987834993342643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78493ff1fd5b67a469d0239d527b8863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2344756013726206496
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +297,7 @@ PrefabInstance:
     - target: {fileID: 6092692537569346865, guid: cb4a1c3f9c37a7d42b3aae812fc5b8ff,
         type: 3}
       propertyPath: m_Name
-      value: Battery
+      value: Battery Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5440963239660385581, guid: cb4a1c3f9c37a7d42b3aae812fc5b8ff,
         type: 3}
@@ -342,8 +354,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 363821555811530593, guid: cb4a1c3f9c37a7d42b3aae812fc5b8ff, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cb4a1c3f9c37a7d42b3aae812fc5b8ff, type: 3}
+--- !u!1 &4631987834993342643 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6092692537569346865, guid: cb4a1c3f9c37a7d42b3aae812fc5b8ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1496804693124054402}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6865624163992832175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5440963239660385581, guid: cb4a1c3f9c37a7d42b3aae812fc5b8ff,

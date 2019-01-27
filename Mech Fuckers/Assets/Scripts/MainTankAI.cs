@@ -14,6 +14,8 @@ public class MainTankAI : MonoBehaviour
     public ParticleSystem effects;
     public GameObject damageSparks;
     public ParticleSystem explosion;
+    AudioSource ShotAudio;
+    float AudioTime = 0.7f;
     //private Quaternion smoothTilt;
 
     public GameObject PowerUps;
@@ -21,6 +23,7 @@ public class MainTankAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ShotAudio = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         var em = effects.emission;
         em.enabled = false;
@@ -56,11 +59,18 @@ public class MainTankAI : MonoBehaviour
         {
             var em = effects.emission;
             em.enabled = true;
+            AudioTime -= Time.deltaTime;
+            if(AudioTime <= 0f)
+            {
+                ShotAudio.Play(0);
+                AudioTime = 1;
+            }
         }
         else
         {
             var em = effects.emission;
             em.enabled = false;
+            AudioTime = 0.6f;
         }
     }
 

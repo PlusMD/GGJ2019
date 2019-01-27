@@ -102,7 +102,7 @@ PrefabInstance:
     - target: {fileID: 5669275852511212786, guid: 7ae0fff9024dfca4ab4310e9ceb89ade,
         type: 3}
       propertyPath: m_Name
-      value: NitroTank
+      value: NitroTank Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4003629421946423623, guid: 7ae0fff9024dfca4ab4310e9ceb89ade,
         type: 3}
@@ -159,8 +159,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2089330466454846797, guid: 7ae0fff9024dfca4ab4310e9ceb89ade,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 8298779483839577617}
+    - target: {fileID: 2089330466454846797, guid: 7ae0fff9024dfca4ab4310e9ceb89ade,
+        type: 3}
+      propertyPath: materialDeath
+      value: 
+      objectReference: {fileID: 2100000, guid: 681b273a447c4544190f0ae87174c07e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ae0fff9024dfca4ab4310e9ceb89ade, type: 3}
+--- !u!1 &8298779483839577617 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5669275852511212786, guid: 7ae0fff9024dfca4ab4310e9ceb89ade,
+    type: 3}
+  m_PrefabInstance: {fileID: 4433371212813421283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &723320451497231268 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4003629421946423623, guid: 7ae0fff9024dfca4ab4310e9ceb89ade,
