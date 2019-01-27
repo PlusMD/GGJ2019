@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PowerUpScript : MonoBehaviour
 {
-
+    public int SpawnChance;
     public GameObject RepairKit;
     public GameObject Battery;
     public GameObject Nitro;
 
     public void RandomSpawnChance(Vector3 Location)
     {
-        int Chance = Random.Range(0, 50);
-        if(Chance == 10)
+        int Chance = Random.Range(0, SpawnChance);
+        if(Chance == 1)
         {
             WhichPowerUp(Location);
         }
@@ -20,8 +20,9 @@ public class PowerUpScript : MonoBehaviour
 
     void WhichPowerUp(Vector3 Location)
     {
-        int Power = Random.Range(0, 2);
+        int Power = Random.Range(0, 3);
         //Power = 1;
+        Debug.Log(Power);
         switch (Power)
         {
             case 0:
@@ -34,7 +35,7 @@ public class PowerUpScript : MonoBehaviour
                 Instantiate(Nitro, Location, Quaternion.identity);
                 break;
             default:
-                Debug.Log("Somethings fucked up lads");
+                Debug.Log("Somethings fucked up lads, Blasted Powerup Script");
                 break;
         }
     }

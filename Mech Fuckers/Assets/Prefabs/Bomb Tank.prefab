@@ -4830,7 +4830,7 @@ MonoBehaviour:
   objective: {fileID: 0}
   agent: {fileID: 2598284338703859484}
   range: 5
-  damage: 5
+  damage: 40
   health: 50
   effects: {fileID: 2598284338320901482}
   damageSparks: {fileID: 2598284338798090954}

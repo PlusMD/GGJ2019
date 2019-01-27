@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7973958183774894895
+--- !u!1 &402382116099824475
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,57 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5363973483995495715}
-  - component: {fileID: 8440232984352655206}
+  - component: {fileID: 402382116099824473}
+  - component: {fileID: 402382116099824472}
   m_Layer: 0
-  m_Name: PowerupsObject
+  m_Name: TwitchObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5363973483995495715
+--- !u!4 &402382116099824473
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7973958183774894895}
+  m_GameObject: {fileID: 402382116099824475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.2272725, y: 30.117523, z: 9.588074}
+  m_LocalPosition: {x: -120.83889, y: -348.29895, z: 97.03857}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8440232984352655206
+--- !u!114 &402382116099824472
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7973958183774894895}
+  m_GameObject: {fileID: 402382116099824475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1878b3a2f9d47604c807d5bd1ca40807, type: 3}
+  m_Script: {fileID: 11500000, guid: f8c92ff732c69604b926611b21720744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnChance: 10
-  RepairKit: {fileID: 672063703859022764, guid: 1f1dc41c77df6634b984476d2db802b3,
-    type: 3}
-  Battery: {fileID: 6092692537569346865, guid: cb4a1c3f9c37a7d42b3aae812fc5b8ff, type: 3}
-  Nitro: {fileID: 5669275852511212786, guid: 7ae0fff9024dfca4ab4310e9ceb89ade, type: 3}
+  WaveNumber: 1
+  TwitchCurrency: 500
+  TwitchCurrencyLevel: 500
+  SpawnersObj: {fileID: 0}
+  Spawners: []
+  EnemyBomb: {fileID: 0}
+  Enemy1: {fileID: 0}
+  Enemy2: {fileID: 0}
+  Enemy3: {fileID: 0}
+  Enemy4: {fileID: 0}
+  Enemy1Cost: 50
+  Enemy2Cost: 100
+  Enemy3Cost: 150
+  Enemy4Cost: 200
+  waveCounter: {fileID: 0}
+  uiAnimController: {fileID: 0}
+  username: 
+  password: 
+  channelName: 

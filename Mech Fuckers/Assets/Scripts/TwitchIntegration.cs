@@ -16,6 +16,8 @@ public class TwitchIntegration : MonoBehaviour
     public Transform SpawnersObj;
     public List<Transform> Spawners = new List<Transform>();
 
+    int EnemyBombers = 3;
+    public GameObject EnemyBomb;
     public GameObject Enemy1;
     public GameObject Enemy2;
     public GameObject Enemy3;
@@ -24,6 +26,9 @@ public class TwitchIntegration : MonoBehaviour
     public int Enemy2Cost = 100;
     public int Enemy3Cost = 150;
     public int Enemy4Cost = 200;
+
+    public Text waveCounter;
+    public Animator uiAnimController;
 
     int CurSpawner = 0;
 
@@ -45,6 +50,9 @@ public class TwitchIntegration : MonoBehaviour
     void Start()
     {
         password = PlayerPrefs.GetString("Twitch_Auth_Key");
+        channelName = PlayerPrefs.GetString("Twitch_Display_Name");
+        username = PlayerPrefs.GetString("Twitch_Username");
+
         Debug.Log(password); 
 
         //player prefs.getstring twitch autho key. 
@@ -56,7 +64,8 @@ public class TwitchIntegration : MonoBehaviour
             Spawners.Add(Spawner);
         }
 		Connect ();
-		InvokeRepeating ("chatThankYou", 0f, 60f);
+		InvokeRepeating ("chatThankYou", 0f, 30f);
+        SpawnBombers();
     }
 
     // Reconnect if we lost connection, and if we're connected start reading the chat
@@ -82,7 +91,10 @@ public class TwitchIntegration : MonoBehaviour
 
 		writer.WriteLine ("JOIN #" + channelName);
 		writer.Flush ();
-	}
+
+        string response = reader.ReadLine();
+        Debug.Log(response);
+    }
 
 	// Begin reading the chat, checking for messages and getting the important bits
 	// If you've removed the UI stuff earlier you'll need to remove chatBox.text = String.Format etc
@@ -118,8 +130,16 @@ public class TwitchIntegration : MonoBehaviour
     // Probably put some if statements in there so you don't flood the chat with one giant message
     private void chatThankYou()
     {
-        string message_to_send = "PRIVMSG #" + channelName + " :" + "Thank you for playing!";
-        writer.WriteLine(message_to_send);
+        string message1 = "PRIVMSG #" + channelName + " :" + "Command List:";
+        string message2 = "PRIVMSG #" + channelName + " :" + "'!tank' Cost: " + Enemy1Cost;
+        string message3 = "PRIVMSG #" + channelName + " :" + "'!drone' Cost: " + Enemy2Cost;
+        string message4 = "PRIVMSG #" + channelName + " :" + "'!chopper' Cost: " + Enemy3Cost;
+        string message5 = "PRIVMSG #" + channelName + " :" + "'!heavytank' Cost: " + Enemy4Cost;
+        writer.WriteLine(message1);
+        writer.WriteLine(message2);
+        writer.WriteLine(message3);
+        writer.WriteLine(message4);
+        writer.WriteLine(message5);
         writer.Flush();
     }
 
@@ -130,24 +150,24 @@ public class TwitchIntegration : MonoBehaviour
         ChatInputs.ToLower();
         switch (ChatInputs)
         {
-            case "!spawn1":
-            case "!spawn 1":
+            case "!tank":
                 SpawnAI1();
                 break;
-            case "!spawn2":
-            case "!spawn 2":
+            case "!drone":
                 SpawnAI2();
                 break;
-            case "!spawn3":
-            case "!spawn 3":
+            case "!chopper":
+            case "!helicopter":
                 SpawnAI3();
                 break;
-            case "!spawn4":
-            case "!spawn 4":
+            case "!heavy tank":
+            case "!heavytank":
+            case "!big tank":
+            case "!bigtank":
                 SpawnAI4();
                 break;;
             default:
-                Debug.Log("Somethings fucked up lads!");
+                Debug.Log("Chat command incorrect!");
                 break;
         }
 
@@ -218,6 +238,20 @@ public class TwitchIntegration : MonoBehaviour
         CheckTwitchCurrency();
     }
 
+    void SpawnBombers()
+    {
+        for(int i = 0; i < EnemyBombers; i++)
+        {
+            Instantiate(EnemyBomb, Spawners[CurSpawner].position, Quaternion.identity);
+            CurSpawner += 1;
+            if(CurSpawner == Spawners.Count)
+            {
+                CurSpawner = 0;
+            }
+        }
+        EnemyBombers += 1;
+    }
+
     void CheckTwitchCurrency()
     {
         if(TwitchCurrency <= 0)
@@ -228,9 +262,12 @@ public class TwitchIntegration : MonoBehaviour
 
     void WaveEnd()
     {
-        TwitchCurrencyLevel += 50;
+        waveCounter.text = "PREPARE FOR ROUND " + (WaveNumber + 1);
+        uiAnimController.SetTrigger("WaveChange");
+        TwitchCurrencyLevel += 100;
         TwitchCurrency = TwitchCurrencyLevel;
         WaveNumber += 1;
+        SpawnBombers();
     }
 
 }

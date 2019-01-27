@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using System.Net.Sockets;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class TwitchConnect : MonoBehaviour
 {
@@ -18,10 +19,14 @@ public class TwitchConnect : MonoBehaviour
     private StreamWriter writer;
 
     public Text connectionStatus;
+    public Text connectionStatusDetail;
 
     public Text displayText;
     public Text userText;
     public Text authText;
+
+    public GameObject connectionUI;
+    public GameObject launchUI;
 
     void Start()
     {
@@ -67,20 +72,30 @@ public class TwitchConnect : MonoBehaviour
         writer.WriteLine("JOIN #" + dispName);
         writer.Flush();
 
-        if (twitchClient.Connected)
-        {
-            connectionStatus.text = "Could Not Connect";
-        }
+        string response = reader.ReadLine();
+        Debug.Log(response);
 
-        else
+        if (response.Contains("Welcome"))
         {
-            connectionStatus.text = "Connected";
+            connectionStatus.text = "Connected!";
+            connectionStatusDetail.text = response.ToString();
+            connectionUI.SetActive(false);
+            launchUI.SetActive(true);
 
             PlayerPrefs.SetString("Twitch_Display_Name", dispName);
             PlayerPrefs.SetString("Twitch_Username", userName);
             PlayerPrefs.SetString("Twitch_Auth_Key", authKey);
         }
+
+        else
+        {
+            connectionStatus.text = "Connection failed";
+            connectionStatusDetail.text = response.ToString();
+        }
     }
 
+    public void StartGame() {
+        SceneManager.LoadScene(1);
+    }
 }
 

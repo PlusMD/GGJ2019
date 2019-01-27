@@ -13,7 +13,9 @@ public class PlayerHealth : MonoBehaviour
     public GameObject damageHologramRed;
     public GameObject damageAlarm;
 
-    float TimeLeft = 20f;
+    bool PowerUp = false;
+    public float TimeLeft = 20f;
+    public Text powerupUI;
 
     public GameObject ParticleGun1;
     public GameObject ParticleGun2;
@@ -23,25 +25,34 @@ public class PlayerHealth : MonoBehaviour
 
     public void Update()
     {
-        if(DoubleDamage)
+        if(PowerUp)
         {
             TimeLeft -= Time.deltaTime;
             if(TimeLeft <= 0)
             {
-                DoubleDamage = false;
-                ParticleGun1.GetComponent<PlayerShotHit>().Damage /= 2;
-                ParticleGun2.GetComponent<PlayerShotHit>().Damage /= 2;
-                TimeLeft = 20f;
+                if(DoubleDamage)
+                {
+                    DoubleDamage = false;
+                    ParticleGun1.GetComponent<PlayerShotHit>().Damage /= 2;
+                    ParticleGun2.GetComponent<PlayerShotHit>().Damage /= 2;
+                    powerupUI.text = "";
+                }
+                else if(DoubleSpeed)
+                {
+                    DoubleSpeed = false;
+                    this.gameObject.GetComponent<PlayerMovement>().speed /= 2;
+                    powerupUI.text = "";
+                }
+                CheckOtherPowerUps();
             }
         }
-        else if(DoubleSpeed)
+    }
+
+    void CheckOtherPowerUps()
+    {
+        if (!DoubleDamage && !DoubleSpeed)
         {
-            TimeLeft -= Time.deltaTime;
-            if(TimeLeft <= 0)
-            {
-                DoubleSpeed = false;
-                this.gameObject.GetComponent<PlayerMovement>().speed /= 2;
-            }
+            PowerUp = false;
         }
     }
 
@@ -68,7 +79,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void FoundRepairKit()
     {
-        currentHealth += 50;
+        currentHealth += 100;
         if(currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
@@ -78,15 +89,27 @@ public class PlayerHealth : MonoBehaviour
 
     public void FoundBattery()
     {
-        DoubleDamage = true;
-        ParticleGun1.GetComponent<PlayerShotHit>().Damage *= 2;
-        ParticleGun2.GetComponent<PlayerShotHit>().Damage *= 2;
+        if(!DoubleDamage)
+        {
+            PowerUp = true;
+            DoubleDamage = true;
+            ParticleGun1.GetComponent<PlayerShotHit>().Damage *= 2;
+            ParticleGun2.GetComponent<PlayerShotHit>().Damage *= 2;
+            powerupUI.text = "DOUBLE DAMAGE";
+        }
+        TimeLeft = 20f;
     }
 
     public void FoundNitro()
     {
-        DoubleSpeed = true;
-        this.gameObject.GetComponent<PlayerMovement>().speed *= 2;
+        if(!DoubleSpeed)
+        {
+            PowerUp = true;
+            DoubleSpeed = true;
+            this.gameObject.GetComponent<PlayerMovement>().speed *= 2;
+            powerupUI.text = "NITRO";
+        }
+        TimeLeft = 20f;
     }
 
 }

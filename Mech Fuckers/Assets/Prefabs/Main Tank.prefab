@@ -19024,7 +19024,7 @@ MonoBehaviour:
   agent: {fileID: 5888395920715881704}
   turret: {fileID: 6831460372775173374}
   barrel: {fileID: 6831460372775173368}
-  range: 20
+  range: 40
   health: 50
   effects: {fileID: 5888395920001471704}
   damageSparks: {fileID: 5888395919938491752}

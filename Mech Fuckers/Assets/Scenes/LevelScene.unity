@@ -7481,65 +7481,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1306137308}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &768441157
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 768441159}
-  - component: {fileID: 768441158}
-  m_Layer: 0
-  m_Name: TwitchObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &768441158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768441157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8c92ff732c69604b926611b21720744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WaveNumber: 1
-  TwitchCurrency: 500
-  TwitchCurrencyLevel: 500
-  SpawnersObj: {fileID: 1487339758}
-  Spawners: []
-  Enemy1: {fileID: 0}
-  Enemy2: {fileID: 0}
-  Enemy3: {fileID: 0}
-  Enemy4: {fileID: 0}
-  Enemy1Cost: 50
-  Enemy2Cost: 100
-  Enemy3Cost: 150
-  Enemy4Cost: 200
-  username: 
-  password: 
-  channelName: 
---- !u!4 &768441159
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768441157}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -120.83889, y: -348.29895, z: 97.03857}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 25
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &785031920
 GameObject:
   m_ObjectHideFlags: 0
@@ -12047,6 +11988,91 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2124436547}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &402382116732854302
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 402382116099824475, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: m_Name
+      value: TwitchObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 402382116099824473, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -120.83889
+      objectReference: {fileID: 0}
+    - target: {fileID: 402382116099824473, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -348.29895
+      objectReference: {fileID: 0}
+    - target: {fileID: 402382116099824473, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 97.03857
+      objectReference: {fileID: 0}
+    - target: {fileID: 402382116099824473, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402382116099824473, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402382116099824473, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402382116099824473, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 402382116099824473, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 402382116099824473, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402382116099824473, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402382116099824473, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402382116099824472, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: SpawnersObj
+      value: 
+      objectReference: {fileID: 1487339758}
+    - target: {fileID: 402382116099824472, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: EnemyBomb
+      value: 
+      objectReference: {fileID: 2598284338703859486, guid: 4ff59b618fef8214ca6407a9ec8138b0,
+        type: 3}
+    - target: {fileID: 402382116099824472, guid: cd4e30f3218f2534a8931432e9598710,
+        type: 3}
+      propertyPath: username
+      value: hf97damnation
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cd4e30f3218f2534a8931432e9598710, type: 3}
 --- !u!1001 &1101367392909185341
 PrefabInstance:
   m_ObjectHideFlags: 0
